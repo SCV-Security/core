@@ -43,6 +43,10 @@ WORKDIR /terra
 
 COPY --from=go-builder /code/build/terrad /usr/local/bin/terrad
 
+COPY docker/* /terra/
+RUN chmod +x /terra/*.sh
+
+
 USER terra
 
 # rest server

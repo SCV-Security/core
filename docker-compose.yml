@@ -1,0 +1,15 @@
+version: "3"
+services:
+  node:
+    build:
+      context: .
+      args:
+        - arch=${ARCH:-x86_64}
+    command: ./setup_and_run.sh terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v
+    ports:
+      - 1317:1317 # rest
+      - 26656:26656 # p2p
+      - 26657:26657 # rpc
+    environment:
+      - GAS_LIMIT=${GAS_LIMIT:-100000000}
+      - STAKE_TOKEN=${STAKE_TOKEN:-ustake}
